@@ -135,4 +135,16 @@ public class LobbyRepositoryImpl implements LobbyRepository {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         return session.get(Lobby.class, id);
     }
+
+    @Override
+    public boolean updateLobby(Lobby l) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.update(l);
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
 }

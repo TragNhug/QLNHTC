@@ -18,4 +18,5 @@ public interface LobbyService {
     boolean addLobby(Lobby l);
     boolean deleteLobby(int id);
     Lobby getLobbyById(int id);
+    Boolean updateLobby(Lobby l);
 }

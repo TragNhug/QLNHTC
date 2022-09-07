@@ -4,6 +4,7 @@
  */
 package com.httn.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Set;
 import javax.persistence.Basic;
@@ -73,6 +74,7 @@ public class Lobby implements Serializable {
     @Column(name = "image")
     private String image;
     @Transient
+    @JsonIgnore
     private MultipartFile file;
 
     public Lobby() {

@@ -8,7 +8,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <h1 class="btn-success text-center">CHỈNH SỬA THÔNG TIN SẢNH CƯỚI</h1>
-
+<c:url value="admin/updateLobby/{id}" var="action" />
 <form:form action="${updateU}" method="post" modelAttribute="lobby" >
     <div id="fom-update">
         <div class="form-floating mb-3 mt-3">
@@ -37,3 +37,10 @@
         </div>
     </div>
 </form:form>
+<script src="<c:url value="/js/lobby.js" />"></script>
+<script>
+   
+    window.onload = function () {
+        viewUpdate(${lobbyId});
+    }
+</script>

@@ -22,7 +22,20 @@ function deleteLobby(endpoint, id, btn) {
     });
 }
 
-
+function viewUpdate(id){
+    fetch(`/QLNHTC/api/updateLobby/${id}`, {
+        method: "post"
+    }).then(function (res) {
+        return res.json()
+    }).then(function (data) {
+        document.getElementById("name").value=data.name;
+        document.getElementById("price").value=data.price;
+        document.getElementById("qtytable").value=data.qtytable;
+        document.getElementById("qtystaff").value=data.qtystaff;
+        
+        
+    })
+}
 
 
 function loadLobies(endpoint) {
@@ -38,6 +51,10 @@ function loadLobies(endpoint) {
         
                     <td>${data[i].name}</td>
                     <td>${data[i].price} VND</td>
+                    <td>
+                       
+                        <a type="button" href="/QLNHTC/admin/updateLobby/${data[i].id}" class="btn btn-danger" >Cap nhat</a>
+                    </td>
                     <td>
                         <div class="spinner-border text-info" style="display:none" id="load${data[i].id}"></div>
                         <button class="btn btn-danger" onclick="deleteLobby('${endpoint + "/" + data[i].id}', ${data[i].id}, this)">xóa</button>

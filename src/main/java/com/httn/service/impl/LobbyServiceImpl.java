@@ -49,4 +49,10 @@ public class LobbyServiceImpl implements LobbyService {
     public Lobby getLobbyById(int id) {
         return this.lobbyRepository.getLobbyById(id);
     }
+
+    @Override
+    public Boolean updateLobby(Lobby l) {
+        l.setImage("https://asiana-plaza.com/wp-content/uploads/2021/03/trang-tri-sanh-tiec-cuoi-dep-3.jpg");
+         return this.lobbyRepository.updateLobby(l);
+    }
 }
